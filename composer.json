@@ -1,0 +1,19 @@
+{
+    "name": "agossou/password-level",
+    "description": "Check password security level",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Agossou\\PasswordLevel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gbenankpon Arthur",
+            "email": "arth.bage@gmail.com"
+        }
+    ],
+    "require": {
+	"php": ">=5.6"
+    }
+}
