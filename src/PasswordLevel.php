@@ -2,8 +2,26 @@
 
 namespace Agossou\PasswordLevel;
 
-class PasswordLevel {
+abstract class AbstractPasswordLevel {
+	abstract public static function checkLevel($password = "");
+}
 
+abstract class AbstractSecurePassword {
+	abstract static function generate();
+}
+
+trait Characters {
+	private static $uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static $lowercases = "abcdefghijklmnopqrstuvwxyz";
+	private static $numbers = "0123456789";
+	private static $symbols = "~`!@#$%^&*()_-+={[}]|\:;\"'<,>.?/";
+}
+
+interface ILengths {
+	public const STD_LEN = 10;
+}
+
+class PasswordLevel extends AbstractPasswordLevel {
 	public static function checkLevel($password = ""){
 		$level = (int)!(strlen($password) < 8);
 	
@@ -23,4 +41,50 @@ class PasswordLevel {
 		return $level;
 	}
 	
+}
+
+class SecurePassword extends AbstractSecurePassword implements ILengths {
+	use Characters;
+	
+	const UPPC = "UPPC";
+	const LOWC = "LOWC";
+	const NUMB = "NUMB";
+	const SYMB = "SYMB";
+
+	public static function generate(){
+		$length = self::STD_LEN;
+		$alphalen = strlen(self::UPPC);
+		$nlen = strlen(self::NUMB);
+		$symlen = strlen(self::SYMB);
+
+		$char = self::UPPC;
+
+		$passwd = "";
+		for($i = 0;$i<$length;$i++){
+			switch($char){
+				case self::UPPC: 
+					$position = rand(0,$alphalen-1);
+					$passwd .= self::$uppercases[$position];
+					$char = self::LOWC;
+					break;
+				case self::LOWC: 
+					$position = rand(0,$alphalen-1);
+					$passwd .= self::$lowercases[$position];
+					$char = self::NUMB;
+					break;
+				case self::NUMB: 
+					$position = rand(0,$nlen-1);
+					$passwd .= self::$numbers[$position];
+					$char = self::SYMB;
+					break;
+				case self::SYMB: 
+					$position = rand(0,$symlen-1);
+					$passwd .= self::$symbols[$position];
+					$char = self::UPPC;
+					break;
+			}
+		}
+
+		return str_shuffle($passwd);
+	}
 }
