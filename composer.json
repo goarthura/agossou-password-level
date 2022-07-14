@@ -2,7 +2,7 @@
     "name": "agossou/password-level",
     "description": "Check password security level",
     "homepage":     "https://github.com/goarthura/password-level",
-    "keywords":     ["password", "security", "secure", "level", "check", "strong"],
+    "keywords":     ["secure", "password", "security", "level"],
     "license": "GPL-3.0-only",
     "autoload": {
         "psr-4": {

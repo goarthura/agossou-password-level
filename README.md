@@ -17,7 +17,7 @@ This library requires **PHP v4.3** or higher.
 
 Use the below code to install the wrapper:
 
-`composer require agosssou/password-level`
+`composer require agossou/password-level`
 
 If you are not using [Composer](https://getcomposer.org/), clone or download [this repository](https://github.com/goarthura/password-level) that already contains the `vendor/autoload.php` file. If you encounter an issue, please post it here and not on the mirror repository.
 
@@ -25,8 +25,10 @@ If you are not using [Composer](https://getcomposer.org/), clone or download [th
 
 ```php
 <?php
-// check the security level of a password
+// check password security level
 use Agossou\PasswordLevel\PasswordLevel;
+
+$password = 'given password';
 
 $level = PasswordLevel::checkLevel($password);
 
