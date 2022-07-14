@@ -1,7 +1,7 @@
 {
     "name": "agossou/password-level",
     "description": "Check password security level",
-    "homepage":     "https://github.com/goarthura/agossou-password-level",
+    "homepage":     "https://github.com/goarthura/password-level",
     "keywords":     ["password", "security", "secure", "level", "check", "strong"],
     "license": "GPL-3.0-only",
     "autoload": {
@@ -12,7 +12,7 @@
     "authors": [
         {
             "name": "Gbenankpon Arthur",
-            "email": "arth.bage@gmail.com"
+            "email": "goarthura@gmail.com"
         }
     ],
     "require": {

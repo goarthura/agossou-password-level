@@ -25,9 +25,9 @@ If you are not using [Composer](https://getcomposer.org/), clone or download [th
 
 ```php
 <?php
+// check the security level of a password
 use Agossou\PasswordLevel\PasswordLevel;
 
-// check the security level of a password
 $level = PasswordLevel::checkLevel($password);
 
 or 
@@ -35,6 +35,8 @@ or
 $level = \Agossou\PasswordLevel\PasswordLevel::checkLevel($password);
 
 // generate secure password
+use Agossou\PasswordLevel\SecurePassword;
+
 $secure_password = SecurePassword::generate();
 
 or 
